@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\GenerateQRController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('/events', EventsController::class);
+Route::resource('/generate-qr', GenerateQRController::class);

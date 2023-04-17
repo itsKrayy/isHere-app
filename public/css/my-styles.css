@@ -117,3 +117,53 @@
     background-color: #ddd;
   }
   
+  h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .form-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  .qr-code-container {
+    width: 250px;
+    height: 250px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  .qr-code-label {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
