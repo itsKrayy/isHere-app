@@ -3,12 +3,12 @@
 @section('content')
 <h1>Generate QR Code</h1>
     <div class="form-container">
-      <form>
+      <form action="{ url('/edit') }">
         <label class="form-label" for="school-id">School ID:</label>
-        <input class="form-input" type="text" id="school-id" name="school-id" required>
+        <input class="form-input" type="text" id="school-id" name="school_id" required>
 
         <label class="form-label" for="student-name">Student Name:</label>
-        <input class="form-input" type="text" id="student-name" name="student-name" required>
+        <input class="form-input" type="text" id="student-name" name="student_name" required>
 
         <label class="form-label" for="department">Department:</label>
         <input class="form-input" type="text" id="department" name="department" required>
