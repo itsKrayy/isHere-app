@@ -9,5 +9,7 @@ class attendance extends Model
 {
     use HasFactory;
 
-    protected $table = 'attendance';
+    protected $table = 'attendancelogs';
+
+    protected $fillable = ['event_id', 'student_id', 'student_name', 'department', 'time_in', 'updated_at', 'created_at'];
 }

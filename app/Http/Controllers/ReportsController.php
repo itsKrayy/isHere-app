@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QRGenerator;
+use App\Models\events;
+use App\Models\subs;
 use Illuminate\Http\Request;
 
-class GenerateQRController extends Controller
+class ReportsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,14 @@ class GenerateQRController extends Controller
      */
     public function index()
     {
-        return view('AccountGenerateQR');
+        $subs = subs::find(1);
+        // dump($subs);
+        return view('accountReport', [
+            'subs'  => $subs,
+            'events' => events::all(),
+            'specific_event' => '',
+            'attendance_logs' => ''
+        ]);
     }
 
     /**
@@ -41,10 +49,10 @@ class GenerateQRController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\QRGenerator  $qRGenerator
+     * @param  \App\Models\events  $events
      * @return \Illuminate\Http\Response
      */
-    public function show(QRGenerator $qRGenerator)
+    public function show(events $events)
     {
         //
     }
@@ -52,10 +60,10 @@ class GenerateQRController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\QRGenerator  $qRGenerator
+     * @param  \App\Models\events  $events
      * @return \Illuminate\Http\Response
      */
-    public function edit(QRGenerator $qRGenerator)
+    public function edit(events $events)
     {
         //
     }
@@ -64,10 +72,10 @@ class GenerateQRController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\QRGenerator  $qRGenerator
+     * @param  \App\Models\events  $events
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, QRGenerator $qRGenerator)
+    public function update(Request $request, events $events)
     {
         //
     }
@@ -75,10 +83,10 @@ class GenerateQRController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\QRGenerator  $qRGenerator
+     * @param  \App\Models\events  $events
      * @return \Illuminate\Http\Response
      */
-    public function destroy(QRGenerator $qRGenerator)
+    public function destroy(events $events)
     {
         //
     }

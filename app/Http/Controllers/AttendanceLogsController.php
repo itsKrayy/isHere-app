@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QRGenerator;
 use Illuminate\Http\Request;
 
-class GenerateQRController extends Controller
+use App\Models\events;
+use App\Models\attendance;
+
+class AttendanceLogsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class GenerateQRController extends Controller
      */
     public function index()
     {
-        return view('AccountGenerateQR');
+        
     }
 
     /**
@@ -22,9 +24,20 @@ class GenerateQRController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( String $id )
     {
-        //
+
+        
+    }
+
+    public function addLog (String $id)
+    {
+        $event = events::find($id);
+
+        return view('accountAddLog', [
+            'event' => $event,
+            'event_id' => $id
+        ]);
     }
 
     /**
@@ -36,15 +49,19 @@ class GenerateQRController extends Controller
     public function store(Request $request)
     {
         //
+
+        // dump($request->event_id);
+        attendance::create($request->all());
+        return redirect('/events/'.$request->event_id.'/edit');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\QRGenerator  $qRGenerator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(QRGenerator $qRGenerator)
+    public function show($id)
     {
         //
     }
@@ -52,10 +69,10 @@ class GenerateQRController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\QRGenerator  $qRGenerator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(QRGenerator $qRGenerator)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +81,10 @@ class GenerateQRController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\QRGenerator  $qRGenerator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, QRGenerator $qRGenerator)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,11 +92,12 @@ class GenerateQRController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\QRGenerator  $qRGenerator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(QRGenerator $qRGenerator)
+    public function destroy($id)
     {
-        //
+        attendance::destroy($id);
+        return back();
     }
 }
