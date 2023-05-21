@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\events;
-use App\Models\subs;
 use Illuminate\Http\Request;
 
-class ReportsController extends Controller
+class MainController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +13,7 @@ class ReportsController extends Controller
      */
     public function index()
     {
-        $subs = subs::where('is_sub', 1)->get();
-        // dump($subs);
-        return view('accountReport', [
-            'subs'  => $subs,
-            'events' => events::all(),
-            'specific_event' => '',
-            'attendance_logs' => ''
-        ]);
+        return view('homepage');
     }
 
     /**
@@ -49,10 +40,10 @@ class ReportsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\events  $events
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(events $events)
+    public function show($id)
     {
         //
     }
@@ -60,10 +51,10 @@ class ReportsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\events  $events
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(events $events)
+    public function edit($id)
     {
         //
     }
@@ -72,10 +63,10 @@ class ReportsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\events  $events
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, events $events)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -83,10 +74,10 @@ class ReportsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\events  $events
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(events $events)
+    public function destroy($id)
     {
         //
     }

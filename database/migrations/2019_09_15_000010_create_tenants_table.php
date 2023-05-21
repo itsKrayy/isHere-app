@@ -21,6 +21,7 @@ class CreateTenantsTable extends Migration
             // your custom columns may go here
 
             $table->timestamps();
+            $table->string('name');
             $table->json('data')->nullable();
         });
     }

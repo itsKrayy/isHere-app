@@ -1,0 +1,28 @@
+@extends('layouts.adminlayout')
+
+@section('content')
+<div id="editEmployeeModal" class="">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="{{ url('/admin/'.$tenant->id) }}" method="post">
+                {!! csrf_field() !!}
+                @method('PATCH')
+				<div class="modal-header">						
+					<h4 class="modal-title">Edit Tenant</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body" >	
+					<div class="form-group">
+						<label>ID</label>
+						<input type="text" class="form-control" name="id" value="{{ $tenant->id }}" required>
+					</div>			
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-info" value="Save">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@endsection

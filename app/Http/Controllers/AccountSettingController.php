@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\events;
 use App\Models\subs; 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class AccountSettingController extends Controller
 {
@@ -15,12 +17,33 @@ class AccountSettingController extends Controller
      */
     public function index()
     {
-        $subs = subs::find(1);
+        $subs = subs::all();
+        // $subs = subs::where('is_sub', 1)->get();
+        // dump($subs);
         return view('accountSetting', [
             'subs'  => $subs,
             'events'    => events::all()
         ]);
     }
+
+    public function buyReport()
+    {
+        $sub = [
+            'is_sub' => 1
+        ];
+
+        subs::create($sub);
+
+        // return redirect('/reports');
+        return redirect()->back();
+    }
+
+    public function cancelSub()
+    {
+        DB::table('subs')->truncate();
+        return redirect('/menu');
+    }
+
 
     /**
      * Show the form for creating a new resource.

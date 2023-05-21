@@ -17,6 +17,13 @@ class AccountController extends Controller
         return view('accountHome');
     }
 
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect('/');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

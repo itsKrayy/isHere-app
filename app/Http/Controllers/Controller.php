@@ -15,4 +15,11 @@ class Controller extends BaseController
     {
         return view('login');
     }
+
+    public function homepage()
+    {
+        return view('admin.centralHomepage');
+    }
+
+    
 }

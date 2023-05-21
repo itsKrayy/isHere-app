@@ -62,8 +62,8 @@ class DatabaseSeeder extends Seeder
         //     'time_in'      => '17:19:12',
         // ]);
 
-        DB::table('subs')->insert([
-            'is_sub'        => '0'
-        ]);
+        // DB::table('subs')->insert([
+        //     'is_sub'        => '0'
+        // ]);
     }
 }

@@ -4,7 +4,7 @@
 
 <h1>Reports</h1>
 
-  @if ($subs->is_sub == 1)
+  @if (count($subs) != 0)
     @foreach ($events as $event)
         <div class="event-card">
             <h3 class="event-name"><a href="{{ url('/events/'.$event->id.'/pdf') }}"> {{ $event->event_name }} </a></h3>
@@ -37,13 +37,13 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="buyFeatureModalLabel">You need to buy this feature</h5>
+              <h5 class="modal-title" id="buyFeatureModalLabel">Unlock features with 5 number of reports</h5>
               <a href="{{ url()->previous() }}"><button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
                 <span aria-hidden="true">&times;</span>
               </button></a>   
             </div>
             <div class="modal-body">
-              <p>Please purchase this feature to access the report generation functionality.</p>
+              <p>Please purchase to generate 5 more report this month</p>
               <form>
                 <div class="form-group">
                   <label for="billingMethod">Billing Method</label>
@@ -57,7 +57,7 @@
             </div>
             <div class="modal-footer">
               <a href="{{ url()->previous() }}"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></a>
-              <button type="button" class="btn btn-primary">Buy Now</button>
+              <a href="{{ url('/buyreport') }}"><button type="button" class="btn btn-primary">Buy Now</button></a>
             </div>
           </div>
         </div>

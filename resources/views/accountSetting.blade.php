@@ -12,7 +12,7 @@
           <div class="col-md-9">
             <div class="main-content">
 
-                @if ($subs->is_sub == 0)
+                @if (count($subs) == 0)
                 <div class="" id="buyFeatureModal" tabindex="-1" role="dialog" aria-labelledby="buyFeatureModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -33,7 +33,7 @@
                           </form>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-primary">Buy Now</button>
+                          <a href="{{ url('/buyreport') }}"><button type="button" class="btn btn-primary">Buy Now</button></a>
                         </div>
                       </div>
                     </div>
@@ -74,5 +74,8 @@
            </div>
 
         </div>
+        @if (count($subs) != 0)
+          <a href="{{ url('/cancelsub') }}"><button type="button" class="btn btn-primary">Cancel Subscription</button></a>
+        @endif
     </div>
 @endsection

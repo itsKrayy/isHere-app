@@ -15,9 +15,9 @@
         <a href="{{ url('/attendee') }}">Generate QR</a>
       </div>
       <div class="card">
-        <h2>Facilitator</h2>
-        <p>Manage and Events and Attendance</p>
-        <a href="{{ url('/login') }}">Manage Events</a>
+        <h2>Admin</h2>
+        <p>Manage isHere Tenants</p>
+        <a href="{{ url('/admin') }}">Manage Tenants</a>
       </div>
     </main>
   </body>

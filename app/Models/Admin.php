@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class subs extends Model
+class Admin extends Model
 {
     use HasFactory;
 
-    protected $table = 'subs';
-
-    protected $fillable = ['is_sub'];
+    protected $table = 'admin';
+    protected $fillable = ['name', 'email' , 'password'];
 }

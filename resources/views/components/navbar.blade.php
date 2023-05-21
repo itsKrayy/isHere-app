@@ -14,7 +14,7 @@
                         <a class="dropdown-item" href="{{ url('/menu') }}">Menu</a> 
                         <a class="dropdown-item" href="{{ url('/settings') }}">Account Settings</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#!">Log Out</a>
+                        <a class="dropdown-item" href="{{ url('/logout') }}">Log Out</a>
                     </div>
                 </li>
             </ul>
